@@ -43,6 +43,7 @@ namespace ODataExample.Controllers
         {
             return Ok(_db.Books.FirstOrDefault(c => c.Id == id));
         }
+
         // POST api/values
         [EnableQuery]
         public IActionResult Post([FromBody]Book book)
