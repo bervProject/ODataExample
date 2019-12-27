@@ -10,7 +10,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  imageName: 'berviantoleo/tweety'
+  imageName: 'berviantoleo/odata'
 
 steps:
 - task: Docker@2
