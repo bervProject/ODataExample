@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -31,6 +31,7 @@ namespace ODataExample.Controllers
 
         // GET api/values
         [EnableQuery]
+        [HttpGet]
         public IActionResult Get()
         {
             return Ok(_db.Books);
@@ -38,9 +39,9 @@ namespace ODataExample.Controllers
 
         // GET api/values/5
         [EnableQuery]
-        public IActionResult Get(int key)
+        public IActionResult Get(int id)
         {
-            return Ok(_db.Books.FirstOrDefault(c => c.Id == key));
+            return Ok(_db.Books.FirstOrDefault(c => c.Id == id));
         }
         // POST api/values
         [EnableQuery]

@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNet.OData.Builder;
 using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.OData.Edm;
 using ODataExample.Entities;
 using ODataExample.EntityFramework;
@@ -32,31 +25,23 @@ namespace ODataExample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<BookStoreContext>(options => options.UseSqlite("Data Source=bookStore.db"));
-            services.AddOData();
-            services.AddMvc(options =>
+            services.AddControllers(options =>
             {
                 options.EnableEndpointRouting = false;
-            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            });
+            services.AddOData();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-
             app.UseHttpsRedirection();
-            app.UseMvc(b =>
+            app.UseRouting();
+            app.UseMvc(routerBuilder =>
             {
-                b.Select().Expand().Filter().OrderBy().MaxTop(100).Count();
-                b.MapODataServiceRoute("odata", "odata", GetEdmModel());
+                routerBuilder.EnableDependencyInjection();
+                routerBuilder.Select().Expand().Filter().OrderBy().MaxTop(100).Count();
+                routerBuilder.MapODataServiceRoute("odata", "odata", GetEdmModel());
             });
         }
 
