@@ -2,7 +2,7 @@
 
 [![Build Status](https://dev.azure.com/berviantoleo/ODataExample/_apis/build/status/bervProject.ODataExample?branchName=master)](https://dev.azure.com/berviantoleo/ODataExample/_build/latest?definitionId=1&branchName=master)
 
-OData Example in .NET Core API. This sample for .NET Core version 2.2.
+OData Example in .NET Core API. This sample for .NET Core version 3.1.
 
 ## Resources
 
