@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using ODataExample.Entities;
+using System.Collections.Generic;
 
 namespace ODataExample.Utilities
 {
