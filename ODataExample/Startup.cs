@@ -1,12 +1,12 @@
-using System.Linq;
-using Microsoft.AspNet.OData.Builder;
-using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.OData.Edm;
+using Microsoft.OData.ModelBuilder;
 using ODataExample.Entities;
 using ODataExample.EntityFramework;
 
@@ -25,23 +25,23 @@ namespace ODataExample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<BookStoreContext>(options => options.UseSqlite("Data Source=bookStore.db"));
-            services.AddControllers(options =>
-            {
-                options.EnableEndpointRouting = false;
-            });
-            services.AddOData();
+            services.AddControllers();
+            services.AddOData(opt => opt.AddModel("v1", GetEdmModel()).Filter().Select().Expand());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseHttpsRedirection();
-            app.UseRouting();
-            app.UseMvc(routerBuilder =>
+            if (env.IsDevelopment())
             {
-                routerBuilder.EnableDependencyInjection();
-                routerBuilder.Select().Expand().Filter().OrderBy().MaxTop(100).Count();
-                routerBuilder.MapODataServiceRoute("odata", "odata", GetEdmModel());
+                app.UseDeveloperExceptionPage();
+            }
+            app.UseHttpsRedirection();
+            app.UseODataBatching();
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
             });
         }
 
