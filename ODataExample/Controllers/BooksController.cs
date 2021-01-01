@@ -11,12 +11,12 @@ namespace ODataExample.Controllers
 {
     public class BooksController : ODataController
     {
-        private BookStoreContext _db;
+        private readonly BookStoreContext _db;
         public BooksController(BookStoreContext context)
         {
             _db = context;
             _db.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
-            if (context.Books.Count() == 0)
+            if (!context.Books.Any())
             {
                 foreach (var b in DataSource.GetBooks())
                 {

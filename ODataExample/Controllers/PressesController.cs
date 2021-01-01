@@ -9,12 +9,12 @@ namespace ODataExample.Controllers
 {
     public class PressesController : ODataController
     {
-        private BookStoreContext _db;
+        private readonly BookStoreContext _db;
 
         public PressesController(BookStoreContext context)
         {
             _db = context;
-            if (context.Books.Count() == 0)
+            if (!context.Books.Any())
             {
                 foreach (var b in DataSource.GetBooks())
                 {
