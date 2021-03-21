@@ -12,5 +12,12 @@ namespace ODataExampleTest
             var books = DataSource.GetBooks();
             Assert.AreEqual(books.Count, 2);
         }
+
+        [TestMethod]
+        public void GetBooksTest()
+        {
+            var books = DataSource.GetBooks();
+            Assert.AreNotEqual(books.Count, 5);
+        }
     }
 }
