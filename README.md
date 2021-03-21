@@ -1,8 +1,12 @@
 # ODataExample
 
-[![Build Status](https://dev.azure.com/berviantoleo/ODataExample/_apis/build/status/bervProject.ODataExample?branchName=master)](https://dev.azure.com/berviantoleo/ODataExample/_build/latest?definitionId=1&branchName=master)
-
 OData Example in .NET Core API. This sample for .NET Core version 5.0.
+
+## Build Status
+
+| Azure Pipelines | Codecov |
+|:---------------:|:-------:|
+| [![Build Status](https://dev.azure.com/berviantoleo/ODataExample/_apis/build/status/bervProject.ODataExample?branchName=master)](https://dev.azure.com/berviantoleo/ODataExample/_build/latest?definitionId=1&branchName=master) | [![codecov](https://codecov.io/gh/bervProject/ODataExample/branch/master/graph/badge.svg?token=d1bpENYn0k)](https://codecov.io/gh/bervProject/ODataExample) |
 
 ## Resources
 
