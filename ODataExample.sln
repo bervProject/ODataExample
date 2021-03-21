@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataExampleTest", "ODataExampleTest\ODataExampleTest.csproj", "{36520123-41C8-4B38-A18B-811F117C4EA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ODataExample.Test", "ODataExample.Test\ODataExample.Test.csproj", "{36520123-41C8-4B38-A18B-811F117C4EA7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODataExample", "ODataExample\ODataExample.csproj", "{8062051E-81CB-4918-9619-F36CEFC2D5FE}"
 EndProject
