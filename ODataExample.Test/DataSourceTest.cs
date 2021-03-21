@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ODataExample.Utilities;
 
-namespace ODataExampleTest
+namespace ODataExample.Test
 {
     [TestClass]
     public class DataSourceTest
