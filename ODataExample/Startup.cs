@@ -25,8 +25,7 @@ namespace ODataExample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<BookStoreContext>(options => options.UseSqlite("Data Source=bookStore.db"));
-            services.AddControllers();
-            services.AddOData(opt => opt.AddModel("v1", GetEdmModel()).Filter().Select().Expand());
+            services.AddControllers().AddOData(opt => opt.AddModel("v1", GetEdmModel()).Filter().Select().Expand());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
