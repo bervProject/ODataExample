@@ -17,7 +17,7 @@ namespace ODataExample.Utilities
             _books = new List<Book>();
 
             // book #1
-            Book book = new Book
+            Book book = new()
             {
                 Id = 1,
                 ISBN = "978-0-321-87758-1",

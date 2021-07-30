@@ -24,8 +24,8 @@ namespace ODataExample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BookStoreContext>(options => options.UseSqlite("Data Source=bookStore.db"));
-            services.AddControllers().AddOData(opt => opt.AddModel("v1", GetEdmModel()).Filter().Select().Expand());
+            services.AddDbContext<BookStoreContext>(options => options.UseNpgsql(Configuration.GetConnectionString("Default")));
+            services.AddControllers().AddOData(opt => opt.AddRouteComponents("v1", GetEdmModel()).Filter().Select().Expand());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,7 +46,7 @@ namespace ODataExample
 
         private static IEdmModel GetEdmModel()
         {
-            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+            ODataConventionModelBuilder builder = new();
             builder.EntitySet<Book>("Books");
             builder.EntitySet<Press>("Presses");
             return builder.GetEdmModel();
