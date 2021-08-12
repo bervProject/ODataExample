@@ -16,6 +16,7 @@ namespace ODataExample.EntityFramework
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Book>().OwnsOne(c => c.Location);
+            modelBuilder.Entity<Book>().HasOne(x => x.Press).WithMany(x => x.Books).IsRequired();
         }
     }
 }

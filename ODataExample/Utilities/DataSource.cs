@@ -29,6 +29,7 @@ namespace ODataExample.Utilities
                 {
                     Id = 1,
                     Name = "Addison-Wesley",
+                    Email = "support@addison.com",
                     Category = Category.Book
                 }
             };
@@ -47,6 +48,7 @@ namespace ODataExample.Utilities
                 {
                     Id = 2,
                     Name = "O'Reilly",
+                    Email = "support@oreilly.com",
                     Category = Category.EBook,
                 }
             };
