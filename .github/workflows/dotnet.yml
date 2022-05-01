@@ -31,7 +31,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
+      uses: github/codeql-action/init@v2
       with:
         languages: csharp
     - name: Setup .NET Core
@@ -40,9 +40,9 @@ jobs:
         dotnet-version: "6.0.x"
         include-prerelease: true
     - name: Autobuild
-      uses: github/codeql-action/autobuild@v1
+      uses: github/codeql-action/autobuild@v2
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+      uses: github/codeql-action/analyze@v2
   build-docker-test:
     runs-on: ubuntu-20.04
     if: github.event_name == 'pull_request'
