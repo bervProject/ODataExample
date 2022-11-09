@@ -1,12 +1,12 @@
 # ODataExample
 
-OData Example in .NET Core API. This sample for .NET Core version 5.0.
+OData Example in .NET Core API. This sample for .NET version 7.0.
 
 ## Build Status
 
 | Azure Pipelines | Github Action | Codecov |
 |:---------------:|:-------------:|:-------:|
-| [![Build Status](https://dev.azure.com/berviantoleo/ODataExample/_apis/build/status/bervProject.ODataExample?branchName=master)](https://dev.azure.com/berviantoleo/ODataExample/_build/latest?definitionId=1&branchName=master) | [![Dotnet](https://github.com/bervProject/ODataExample/actions/workflows/dotnet.yml/badge.svg)](https://github.com/bervProject/ODataExample/actions/workflows/dotnet.yml) | [![codecov](https://codecov.io/gh/bervProject/ODataExample/branch/master/graph/badge.svg?token=d1bpENYn0k)](https://codecov.io/gh/bervProject/ODataExample) |
+| [![Build Status](https://dev.azure.com/berviantoleo/ODataExample/_apis/build/status/bervProject.ODataExample?branchName=main)](https://dev.azure.com/berviantoleo/ODataExample/_build/latest?definitionId=1&branchName=main) | [![Dotnet](https://github.com/bervProject/ODataExample/actions/workflows/dotnet.yml/badge.svg)](https://github.com/bervProject/ODataExample/actions/workflows/dotnet.yml) | [![codecov](https://codecov.io/gh/bervProject/ODataExample/branch/main/graph/badge.svg?token=d1bpENYn0k)](https://codecov.io/gh/bervProject/ODataExample) |
 
 ## Resources
 

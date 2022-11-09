@@ -21,13 +21,10 @@ static IEdmModel GetEdmModel()
 }
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Host.ConfigureLogging(logging =>
-{
-    logging.ClearProviders();
-    logging.SetMinimumLevel(LogLevel.Trace);
-    logging.AddNLog("Nlog.config");
-    logging.AddNLogWeb();
-});
+builder.Logging.ClearProviders();
+builder.Logging.SetMinimumLevel(LogLevel.Trace);
+builder.Logging.AddNLog("NLog.config");
+builder.Logging.AddNLogWeb();
 builder.Host.UseNLog();
 
 
@@ -43,9 +40,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseODataBatching();
 app.UseRouting();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
+app.MapControllers();
 
 app.Run();

@@ -4,15 +4,15 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- master
+- main
 
 pool:
-  vmImage: 'Ubuntu-20.04'
+  vmImage: 'Ubuntu-22.04'
 
 variables:
   buildConfiguration: 'Release'
   imageName: 'berviantoleo/odata'
-  dotnetSdkVersion: '6.0.x'
+  dotnetSdkVersion: '7.0.x'
 
 steps:
 - task: UseDotNet@2
