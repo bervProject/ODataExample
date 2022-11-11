@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.OData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,7 +28,7 @@ builder.Host.UseNLog();
 
 
 builder.Services.AddDbContext<BookStoreContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
-builder.Services.AddControllers().AddOData(opt => opt.AddRouteComponents("v1", GetEdmModel()).Filter().Select().Expand());
+builder.Services.AddControllers().AddOData(opt => opt.AddRouteComponents("v1", GetEdmModel()).Filter().Select().Expand().Count());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

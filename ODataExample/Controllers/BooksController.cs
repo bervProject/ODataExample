@@ -16,15 +16,13 @@ namespace ODataExample.Controllers
         {
             _db = context;
             _db.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
-            if (!context.Books.Any())
+            if (context.Books.Any()) return;
+            foreach (var b in DataSource.GetBooks())
             {
-                foreach (var b in DataSource.GetBooks())
-                {
-                    context.Books.Add(b);
-                    context.Presses.Add(b.Press);
-                }
-                context.SaveChanges();
+                context.Books.Add(b);
+                context.Presses.Add(b.Press);
             }
+            context.SaveChanges();
         }
 
         [EnableQuery(PageSize = 10)]
@@ -50,7 +48,7 @@ namespace ODataExample.Controllers
         [EnableQuery]
         public IActionResult Delete([FromBody] int key)
         {
-            Book b = _db.Books.FirstOrDefault(c => c.Id == key);
+            var b = _db.Books.FirstOrDefault(c => c.Id == key);
             if (b == null)
             {
                 return NotFound();

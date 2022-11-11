@@ -14,15 +14,13 @@ namespace ODataExample.Controllers
         public PressesController(BookStoreContext context)
         {
             _db = context;
-            if (!context.Books.Any())
+            if (context.Books.Any()) return;
+            foreach (var b in DataSource.GetBooks())
             {
-                foreach (var b in DataSource.GetBooks())
-                {
-                    context.Books.Add(b);
-                    context.Presses.Add(b.Press);
-                }
-                context.SaveChanges();
+                context.Books.Add(b);
+                context.Presses.Add(b.Press);
             }
+            context.SaveChanges();
         }
 
         [EnableQuery]
