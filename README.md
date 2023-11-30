@@ -1,6 +1,6 @@
 # ODataExample
 
-OData Example in .NET Core API. This sample for .NET version 7.0.
+OData Example in .NET Core API. This sample for .NET version 8.0.
 
 ## Build Status
 

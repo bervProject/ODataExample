@@ -12,7 +12,7 @@
         "IIS Express": {
             "commandName": "IISExpress",
             "launchBrowser": true,
-            "launchUrl": "api/books",
+            "launchUrl": "v1/Books",
             "environmentVariables": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
             }
@@ -20,7 +20,7 @@
         "ODataExample": {
             "commandName": "Project",
             "launchBrowser": false,
-            "launchUrl": "api/books",
+            "launchUrl": "v1/books",
             "applicationUrl": "https://localhost:8001;http://localhost:8000",
             "environmentVariables": {
                 "ASPNETCORE_ENVIRONMENT": "Development"
