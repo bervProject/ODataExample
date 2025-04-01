@@ -10,14 +10,13 @@ env:
   IMAGE_NAME: odataexample
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@v4
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: "8.0.x"
-        dotnet-quality: 'preview'
     - name: Install dependencies
       run: dotnet restore
     - name: Build
@@ -27,7 +26,7 @@ jobs:
     - name: Report Codecov
       uses: codecov/codecov-action@v5
   codeql:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@v4
     - name: Initialize CodeQL
@@ -38,7 +37,6 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: "8.0.x"
-        dotnet-quality: 'preview'
     - name: Autobuild
       uses: github/codeql-action/autobuild@v3
     - name: Perform CodeQL Analysis
@@ -52,7 +50,7 @@ jobs:
       - name: Build Image
         run: docker build . -t $IMAGE_NAME
   build-push-docker:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     if: github.event_name == 'push'
     needs: build
     steps:
